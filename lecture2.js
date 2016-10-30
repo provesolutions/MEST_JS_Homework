@@ -94,6 +94,12 @@ Form feed: \f = U+000c
  * 6. Please remove mike, jerry, and Enoch from the following array by using slice
  *    var arr = ['ashwin', 'Todd', 'mike', 'jerry', 'Yaw', 'Enoch', 'lars'];
  */
+ var arr = ['ashwin', 'Todd', 'mike', 'jerry', 'Yaw', 'Enoch', 'lars'];
+ var first = arr.slice(0,2);
+ var second = arr.slice(4, -2);
+ var third = arr.slice(6);
+
+var final = first.concat(second, third);
 
 /*
  * 7. what is the result(output of following code):
@@ -220,10 +226,22 @@ namer.bind(person2);
  *  use call methods on function expression to make this work.
  */
 
-var hello = function(greeting) {
-    console.log(greeting + ' ' + this.firstName + ' '+ lastName);
+var person1 = {
+      firstName: 'ashwin',
+      lastName: 'Yaw'
+};
+ 
+var person2 = {
+    firstName: 'lars',
+    lastName: 'Mike'
+};
+ 
+function hello(greeting) {
+   console.log(greeting + ' ' + this.firstName + ' ' + this.lastName);
 }
-hello.bind(person1)('hello');
+
+hello.call(person1, 'Hello!');
+hello.call(person2, 'Hi!');
 
 
 /*
